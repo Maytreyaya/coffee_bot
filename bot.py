@@ -14,8 +14,7 @@ from aiogram.filters.callback_data import CallbackData
 from aiogram.filters.command import Command, CommandObject
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from magic_filter import F
-from handlers import orders
-
+from handlers import orders, common
 
 from config_reader import config
 
@@ -163,6 +162,7 @@ async def main():
     dp = Dispatcher()
 
     dp.include_routers(orders.router)
+    dp.include_routers(common.router)
 
     await dp.start_polling(bot)
 
