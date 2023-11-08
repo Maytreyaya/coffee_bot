@@ -97,7 +97,7 @@ async def desire_chosen(message: Message, state: FSMContext):
 async def desire_chosen(message: Message, state: FSMContext):
     await message.answer(
         text="Okay, let's move forward!",
-        reply_markup=make_row_keyboard("Finish order")
+        reply_markup="Finish order"
     )
     user_data = await state.get_data()
     await message.answer(
@@ -106,6 +106,7 @@ async def desire_chosen(message: Message, state: FSMContext):
              f" {user_data['chosen_drink'].capitalize()}",
         reply_markup=ReplyKeyboardRemove()
     )
+
     await state.clear()
 
 
