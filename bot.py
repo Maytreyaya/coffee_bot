@@ -2,13 +2,12 @@ import asyncio
 import logging
 import sqlite3
 from aiogram import Bot, Dispatcher
-from handlers import orders, common, users
+from handlers import orders, common, users, app
 
 from config_reader import config
 
 
 async def main():
-
 
     logging.basicConfig(level=logging.INFO)
 
@@ -18,6 +17,7 @@ async def main():
     dp.include_routers(orders.router)
     dp.include_routers(common.router)
     dp.include_routers(users.router)
+    dp.include_routers(app.router)
 
     await dp.start_polling(bot)
 

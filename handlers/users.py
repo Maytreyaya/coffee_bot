@@ -56,7 +56,6 @@ async def passwordd(message: Message, state: FSMContext):
     markup = InlineKeyboardBuilder()
     markup.row(types.InlineKeyboardButton(text='Users: ', callback_data='users'))
 
-
     await message.answer("User registered", reply_markup=markup.as_markup())
     await state.clear()
 
